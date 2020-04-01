@@ -17,7 +17,7 @@ class RemoteAPI{
   Future<List<Position>> getPosition() async {
     try{
       final result = await get(url);
-      final Map<String, dynamic> subData = jsonDecode(utf8.decode(result.body.codeUnits));
+      final Map<String, dynamic> subData = jsonDecode(result.body);
       final Map<String, dynamic> data = jsonDecode(subData['data']);
       return Future.value(data['positions'].map<Position>((item) => Position.fromMap(item)).toList());
     } on TimeoutException{

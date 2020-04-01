@@ -1,6 +1,6 @@
 class Position{
-  Position._(this._id, this.name, this.salary);
-  final int _id;
+  Position._(this.id, this.name, this.salary);
+  final int id;
   final String name;
   final int salary;
 
@@ -8,10 +8,10 @@ class Position{
     return Position._(map['id'], map['name'], map['salary']);
   }
 
-  Map<String, dynamic> toMap(Position value){
+  Map<String, dynamic> toMap(){
     return {
-      'name' : value.name,
-      'salary' : value.salary
+      'name' : name,
+      'salary' : salary
     };
   }
 }
